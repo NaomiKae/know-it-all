@@ -1,33 +1,28 @@
-export const config = {
-  maxDuration: 30
-};
+export const config = { maxDuration: 30 };
 
 export default async function handler(req, res) {
-  if (req.method !== 'POST') return res.status(405).end();
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   
-  try {
-    const apiKey = process.env.ANTHROPIC_API_KEY;
-    if (!apiKey) {
-      return res.status(500).json({ error: 'API key not found' });
-    }
+  if (req.method === 'OPTIONS') return res.status(200).end();
+  if (req.method !== 'POST') return res.status(405).end();
 
+  try {
     const response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'x-api-key': apiKey,
+        'x-api-key': process.env.ANTHROPIC_API_KEY,
         'anthropic-version': '2023-06-01'
       },
       body: JSON.stringify(req.body)
     });
-    
     const data = await response.json();
-    console.log('Anthropic response status:', response.status);
-    console.log('Anthropic response body:', JSON.stringify(data));
-    
+    console.log('Status:', response.status, 'Body:', JSON.stringify(data).slice(0,200));
     res.status(response.status).json(data);
-  } catch(error) {
-    console.log('Catch error:', error.message);
-    res.status(500).json({ error: error.message });
+  } catch(e) {
+    console.log('Error:', e.message);
+    res.status(500).json({ error: e.message });
   }
 }
