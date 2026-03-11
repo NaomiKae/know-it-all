@@ -21,14 +21,13 @@ export default async function handler(req, res) {
       body: JSON.stringify(req.body)
     });
     
-    if (!response.ok) {
-      const errText = await response.text();
-      return res.status(response.status).json({ error: errText });
-    }
-
     const data = await response.json();
-    res.status(200).json(data);
+    console.log('Anthropic response status:', response.status);
+    console.log('Anthropic response body:', JSON.stringify(data));
+    
+    res.status(response.status).json(data);
   } catch(error) {
-    res.status(500).json({ error: error.message, stack: error.stack });
+    console.log('Catch error:', error.message);
+    res.status(500).json({ error: error.message });
   }
 }
