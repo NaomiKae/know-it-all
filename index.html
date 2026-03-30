@@ -447,6 +447,24 @@ nav{padding:24px 40px;display:flex;justify-content:space-between;align-items:cen
 .refl-prompt{max-width:620px;margin:0 auto 24px;width:calc(100% - 80px);padding:26px;background:rgba(167,139,250,.07);border:1px solid rgba(167,139,250,.22);border-radius:18px;}
 .refl-q{font-family:'Libre Baskerville',serif;font-size:18px;font-weight:700;color:var(--violet);line-height:1.45;margin-bottom:14px;}
 .refl-cta{max-width:620px;margin:0 auto 24px;width:calc(100% - 80px);display:flex;flex-direction:row;gap:12px;flex-wrap:wrap;}
+
+/* ── ANNOTATION SYSTEM ── */
+.hs-wrap{position:absolute;z-index:250;}
+/* Dark ring — for light backgrounds */
+.hs-btn{width:20px;height:20px;border-radius:50%;background:rgba(17,24,39,0.15);border:2px solid rgba(17,24,39,0.7);cursor:pointer;display:block;opacity:0;pointer-events:none;transition:opacity 0.2s,transform 0.15s;}
+/* White ring — for dark backgrounds */
+.hs-btn.hs-white{background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.9);}
+.hs-btn:hover{transform:scale(1.12);}
+.anno-on .hs-btn{opacity:1;pointer-events:all;}
+@keyframes anno-pulse-dark{0%{box-shadow:0 0 0 0 rgba(17,24,39,0.35);}50%{box-shadow:0 0 0 9px rgba(17,24,39,0);}100%{box-shadow:0 0 0 0 rgba(17,24,39,0);}}
+@keyframes anno-pulse-white{0%{box-shadow:0 0 0 0 rgba(255,255,255,0.45);}50%{box-shadow:0 0 0 9px rgba(255,255,255,0);}100%{box-shadow:0 0 0 0 rgba(255,255,255,0);}}
+.hs-btn.pulse{animation:anno-pulse-dark 0.65s ease forwards;}
+.hs-btn.hs-white.pulse{animation:anno-pulse-white 0.65s ease forwards;}
+.anno-bubble{position:absolute;background:#1a1a2a;color:#f0f0f8;border:1px solid #2e2e40;border-radius:12px;padding:16px 18px 14px;width:256px;font-size:12px;line-height:1.7;box-shadow:0 8px 28px rgba(0,0,0,0.45);opacity:0;pointer-events:none;transform:translateY(5px) scale(0.97);transition:opacity 0.18s ease,transform 0.18s ease;z-index:9999;font-weight:400;font-family:'Outfit',sans-serif;}
+.anno-bubble.open{opacity:1;pointer-events:all;transform:translateY(0) scale(1);}
+.anno-bubble .ab-close{position:absolute;top:10px;right:12px;background:none;border:none;color:#888;font-size:14px;cursor:pointer;line-height:1;padding:2px;font-family:inherit;}
+.anno-bubble .ab-close:hover{color:#ccc;}
+.anno-bubble p{padding-right:18px;text-transform:none;letter-spacing:normal;}
 </style>
 </head>
 <body>
@@ -489,7 +507,11 @@ if(window.self !== window.top){
     </div>
   </nav>
   <section class="hero">
-    <div class="scene">
+    <div class="scene" style="position:relative;">
+      <div class="hs-wrap" id="hs-wrap-1" style="top:10px;left:10px;">
+        <div class="hs-btn hs-white" id="hs-1" onclick="event.stopPropagation();toggleAnnoBubble('ab-1')"></div>
+        <div class="anno-bubble" id="ab-1"><button class="ab-close" onclick="event.stopPropagation();closeAllBubbles()">✕</button><p>The crystal ball sets the cosmic, anonymous theme before a user reads a word — visual metaphor does the heavy lifting so the headline arrives with context already built.</p></div>
+      </div>
       <div class="og og1">♄</div><div class="og og2">✦</div><div class="og og3">☽</div>
       <div class="og og4">♃</div><div class="og og5">⊕</div>
       <div class="ring ring1" style="color:var(--violet)"><div class="rdot" style="color:var(--violet);background:var(--violet)"></div></div>
@@ -508,19 +530,31 @@ if(window.self !== window.top){
     <div class="hero-kicker">An arena of ideas · Open to all seekers</div>
     <h1 class="hero-title"><span class="ht1">Know</span><span class="ht2">It All</span></h1>
     <p class="hero-body">Debate claims from the cosmos of human knowledge. Stay anonymous. Let evidence guide you. Change your mind freely.</p>
-    <div class="cta-group">
+    <div class="cta-group" style="position:relative;">
+      <div class="hs-wrap" id="hs-wrap-2" style="top:-10px;left:-14px;">
+        <div class="hs-btn hs-white" id="hs-2" onclick="event.stopPropagation();toggleAnnoBubble('ab-2')"></div>
+        <div class="anno-bubble" id="ab-2"><button class="ab-close" onclick="event.stopPropagation();closeAllBubbles()">✕</button><p>"Begin Seeking" is the single primary CTA. "How does it work?" sits below as a ghost link for users who need more context before committing. Two options, clear hierarchy, no decision paralysis.</p></div>
+      </div>
       <button class="btn-primary btn" id="begin-seeking-btn" onclick="beginSeeking()">Begin Seeking</button>
       <button class="btn-ghost" onclick="openHowItWorks()">How does it work? →</button>
     </div>
   </section>
   <div class="rule"><div class="rule-line"></div><div class="rule-mark">· · ·</div><div class="rule-line"></div></div>
-  <div class="feat-grid">
+  <div class="feat-grid" style="position:relative;">
+    <div class="hs-wrap" id="hs-wrap-3" style="top:-12px;left:-12px;">
+      <div class="hs-btn hs-white" id="hs-3" onclick="event.stopPropagation();toggleAnnoBubble('ab-3')"></div>
+      <div class="anno-bubble" id="ab-3"><button class="ab-close" onclick="event.stopPropagation();closeAllBubbles()">✕</button><p>Users who skip the hero copy get a second pass at understanding the game. Each card answers a hesitation — What are claims? Will I be exposed? Is there pressure? Can I change my mind? Four cards, four objections handled before clicking in.</p></div>
+    </div>
     <div class="card feat-card fc-a"><span class="feat-icon">🌐</span><div class="feat-title">Global Claims</div><div class="feat-body">Drawn from the shared pool — science, ethics, history, myth</div></div>
     <div class="card feat-card fc-t"><span class="feat-icon">🎭</span><div class="feat-title">Stay Anonymous</div><div class="feat-body">Your pseudonym protects you. Ideas speak, not identities</div></div>
     <div class="card feat-card fc-v"><span class="feat-icon">🌱</span><div class="feat-title">Private Progress</div><div class="feat-body">Badges track your growth. No leaderboards, no pressure</div></div>
     <div class="card feat-card fc-r"><span class="feat-icon">🔄</span><div class="feat-title">Change Your Mind</div><div class="feat-body">Shifting perspectives is wisdom. We celebrate it here</div></div>
   </div>
-  <div class="live-strip">
+  <div class="live-strip" style="position:relative;">
+    <div class="hs-wrap" id="hs-wrap-4" style="top:-12px;left:-12px;">
+      <div class="hs-btn hs-white" id="hs-4" onclick="event.stopPropagation();toggleAnnoBubble('ab-4')"></div>
+      <div class="anno-bubble" id="ab-4"><button class="ab-close" onclick="event.stopPropagation();closeAllBubbles()">✕</button><p>Active seeker counts confirm the game is live and populated — reducing anxiety about entering an empty room. Lightweight urgency without manufactured pressure. Claims are clickable, letting curious users jump straight to the Tome.</p></div>
+    </div>
     <div class="live-label"><div class="live-dot"></div>Claims open right now</div>
     <div class="claims-list">
       <div class="card claim-row" onclick="beginSeeking()"><div class="cdot" style="background:var(--teal)"></div><div class="ctext">"The benefits of space exploration outweigh its cost."</div><div class="ccount">5 seekers</div></div>
@@ -1108,7 +1142,7 @@ async function loadAIArguments() {
     ansEl.scrollTop = ansEl.scrollHeight;
 
     try {
-      const response = await fetch('/api/proxy', {
+      const response = await fetch('https://api.anthropic.com/v1/messages', {
         method:'POST',
         headers:{'Content-Type':'application/json'},
         body: JSON.stringify({
@@ -1280,6 +1314,62 @@ document.head.appendChild(bs);
 window.addEventListener('resize', resize);
 resize();
 drawStars();
+
+// ── ANNOTATION SYSTEM ──
+const allAnnoIds = ['hs-1','hs-2','hs-3','hs-4'];
+let annoEnabled = false;
+
+if(window.self !== window.top){
+  document.body.classList.add('in-iframe');
+  window.addEventListener('message', e => {
+    if(e.data && e.data.type === 'ANNO_TOGGLE') toggleAnno();
+  });
+}
+
+function toggleAnno(){
+  annoEnabled = !annoEnabled;
+  document.body.classList.toggle('anno-on', annoEnabled);
+  if(annoEnabled){
+    allAnnoIds.forEach((id,i)=>{
+      const btn = document.getElementById(id);
+      if(btn) setTimeout(()=>{ btn.classList.remove('pulse'); void btn.offsetWidth; btn.classList.add('pulse'); }, i*120);
+    });
+  } else {
+    allAnnoIds.forEach(id=>{ const b=document.getElementById(id); if(b) b.classList.remove('pulse'); });
+    closeAllBubbles();
+  }
+}
+
+function toggleAnnoBubble(bubbleId){
+  const bubble = document.getElementById(bubbleId);
+  if(!bubble) return;
+  const isOpen = bubble.classList.contains('open');
+  closeAllBubbles();
+  if(!isOpen){
+    const btn = bubble.previousElementSibling;
+    if(btn && btn.classList.contains('hs-btn')){
+      const rect = btn.getBoundingClientRect();
+      bubble.style.position = 'fixed';
+      bubble.style.top = Math.max(8, rect.top - 8) + 'px';
+      bubble.style.left = (rect.right + 8) + 'px';
+      bubble.style.right = 'auto';
+      bubble.style.transform = 'none';
+      const bubbleWidth = 256;
+      if(rect.right + 8 + bubbleWidth > window.innerWidth){
+        bubble.style.left = 'auto';
+        bubble.style.right = (window.innerWidth - rect.left + 8) + 'px';
+      }
+      document.body.appendChild(bubble);
+    }
+    bubble.classList.add('open');
+  }
+}
+
+function closeAllBubbles(){
+  document.querySelectorAll('.anno-bubble').forEach(b=> b.classList.remove('open'));
+}
+
+document.addEventListener('click', ()=> closeAllBubbles());
 </script>
 </body>
 </html>
