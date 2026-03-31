@@ -641,6 +641,11 @@ if(window.self !== window.top){
       <div id="home-rounds" style="font-family:'Outfit',sans-serif;font-size:14px;font-weight:500;color:var(--label);text-align:right;">0 rounds played</div>
     </div>
   </div>
+  <div style="position:relative;">
+    <div class="hs-wrap" style="position:absolute;right:-30px;top:24px;">
+      <div class="hs-btn hs-white" id="hs-6" onclick="event.stopPropagation();toggleAnnoBubble('ab-6')"></div>
+      <div class="anno-bubble" id="ab-6"><button class="ab-close" onclick="event.stopPropagation();closeAllBubbles()">✕</button><p>Persistent identity across sessions — pseudonym, title, XP bar and earned badges give users a stake in returning. Private progress replaces leaderboard pressure with personal growth.</p></div>
+    </div>
   <div class="card seeker-card">
     <div class="sk-row">
       <div class="sk-av" id="home-avatar">🦉<div class="sk-lvl">LVL 7</div></div>
@@ -657,17 +662,30 @@ if(window.self !== window.top){
       <span class="chip chip-amber">✦ Nuanced Thinker</span>
     </div>
   </div>
+  </div>
   <div class="sec-hd"><div style="display:flex;flex-direction:column;gap:3px;"><div class="sec-t">Claims Awaiting</div><div style="font-family:'Outfit',sans-serif;font-size:13px;color:var(--label);font-weight:400;">Pick one to debate anonymously</div></div><div style="display:flex;align-items:center;gap:6px;cursor:pointer;font-family:'Outfit',sans-serif;font-size:14px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--label);" onclick="spinClaims()">Spin All <span style="font-size:20px;line-height:1;">↻</span></div></div>
   <div id="claims-container">
+    <div style="position:relative;">
+      <div class="hs-wrap" style="position:absolute;left:-30px;top:24px;">
+        <div class="hs-btn hs-white" id="hs-7" onclick="event.stopPropagation();toggleAnnoBubble('ab-7')"></div>
+        <div class="anno-bubble" id="ab-7"><button class="ab-close" onclick="event.stopPropagation();closeAllBubbles()">✕</button><p>620px centered column mirrors social feed patterns — familiar scanability without needing to learn a new layout. Cards stack vertically so the user's eye moves straight down the list.</p></div>
+      </div>
     <div class="card home-claim" onclick="pickClaim('The benefits of space exploration outweigh its cost','Science','teal','Medium')">
       <div class="hc-cat"><div class="hc-dot" style="background:var(--teal)"></div><span class="hc-cat-name eyebrow" style="color:var(--teal)">Science</span><span style="flex:1"></span><span class="chip chip-amber">Medium</span></div>
       <div class="hc-text">"The benefits of space exploration outweigh its cost."</div>
       <div class="hc-foot"><div class="hc-live"><div class="lp"></div>5 Seekers waiting</div><span class="chip chip-muted">Room open</span></div>
     </div>
+    </div>
+    <div style="position:relative;">
+      <div class="hs-wrap" style="position:absolute;left:-30px;top:58px;">
+        <div class="hs-btn hs-white" id="hs-8" onclick="event.stopPropagation();toggleAnnoBubble('ab-8')"></div>
+        <div class="anno-bubble" id="ab-8"><button class="ab-close" onclick="event.stopPropagation();closeAllBubbles()">✕</button><p>Category + difficulty chip appear above the claim text so users have context before reading the argument. Outfit sans-serif replaces serif italic — claim text is the most important copy on the page and needs to scan fast.</p></div>
+      </div>
     <div class="card home-claim" onclick="pickClaim('A moral act is only moral if it demands personal sacrifice','Philosophy','violet','Hard')">
       <div class="hc-cat"><div class="hc-dot" style="background:var(--violet)"></div><span class="hc-cat-name eyebrow" style="color:var(--violet)">Philosophy</span><span style="flex:1"></span><span class="chip chip-muted" style="color:#f87171;border-color:rgba(248,113,113,.4)">Hard</span></div>
       <div class="hc-text">"A moral act is only moral if it demands personal sacrifice."</div>
       <div class="hc-foot"><div class="hc-live"><div class="lp"></div>3 Seekers waiting</div><span class="chip chip-muted">Min. players met</span></div>
+    </div>
     </div>
     <div class="card home-claim" onclick="pickClaim('Public libraries are among our most vital civic institutions','Society','amber','Easy')">
       <div class="hc-cat"><div class="hc-dot" style="background:var(--amber)"></div><span class="hc-cat-name eyebrow" style="color:var(--amber)">Society</span><span style="flex:1"></span><span class="chip chip-jade">Easy</span></div>
@@ -686,8 +704,12 @@ if(window.self !== window.top){
 <div id="s-prep" class="screen">
   <nav>
     <div class="nav-logo" onclick="go('s-land')"><svg width="26" height="26" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="9" stroke="rgba(212,146,74,0.5)" stroke-width="0.8"/><circle cx="14" cy="14" r="13" stroke="rgba(94,207,190,0.25)" stroke-width="0.6" stroke-dasharray="2 3"/><circle cx="14" cy="14" r="3" fill="rgba(212,146,74,0.35)"/><line x1="14" y1="1" x2="14" y2="5" stroke="rgba(212,146,74,0.3)" stroke-width="0.8"/><line x1="14" y1="23" x2="14" y2="27" stroke="rgba(212,146,74,0.3)" stroke-width="0.8"/><line x1="1" y1="14" x2="5" y2="14" stroke="rgba(212,146,74,0.3)" stroke-width="0.8"/><line x1="23" y1="14" x2="27" y2="14" stroke="rgba(212,146,74,0.3)" stroke-width="0.8"/></svg><span class="nav-logo-text">Know It All</span></div>
-  <div style="display:flex;justify-content:flex-end;padding:0 40px;margin-top:-16px;margin-bottom:8px;position:relative;z-index:10;">
+  <div style="display:flex;justify-content:flex-end;align-items:center;gap:12px;padding:0 40px;margin-top:-16px;margin-bottom:8px;position:relative;z-index:10;">
     <button class="btn-ghost" onclick="go('s-home')" style="font-size:13px;letter-spacing:.04em;">← Back to Tome</button>
+    <div style="position:relative;">
+      <div class="hs-btn hs-white" id="hs-9" onclick="event.stopPropagation();toggleAnnoBubble('ab-9')"></div>
+      <div class="anno-bubble" id="ab-9"><button class="ab-close" onclick="event.stopPropagation();closeAllBubbles()">✕</button><p>Exit lives top right — mirrors the Tome nav pattern so users always know where the exit is, no matter how far into the flow they've gone.</p></div>
+    </div>
   </div>
   </nav>
   <div class="prep-hdr">
@@ -703,6 +725,11 @@ if(window.self !== window.top){
       <span class="chip chip-muted">Global Pool</span>
     </div>
   </div>
+  <div style="position:relative;">
+    <div class="hs-wrap" style="position:absolute;right:-30px;top:72px;">
+      <div class="hs-btn hs-white" id="hs-10" onclick="event.stopPropagation();toggleAnnoBubble('ab-10')"></div>
+      <div class="anno-bubble" id="ab-10"><button class="ab-close" onclick="event.stopPropagation();closeAllBubbles()">✕</button><p>Skip Wait sits directly next to the countdown timer — the affordance is contextually obvious. Users who don't want to wait see the option exactly where their eye already is.</p></div>
+    </div>
   <div class="card room-card">
     <div class="room-hdr"><div class="room-title">Seekers Assembling</div><div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;"><div class="countdown" id="prep-countdown">0:47</div><button class="btn-skip" onclick="enterChamber()" style="font-size:13px;padding:8px 16px;">Skip Wait →</button></div></div>
     <div class="slots">
@@ -719,6 +746,12 @@ if(window.self !== window.top){
     </div>
     <div class="slot-leg"><strong>5 Seekers</strong> joined — begins when timer ends or room fills (max 10)</div>
   </div>
+  </div>
+  <div style="position:relative;">
+    <div class="hs-wrap" style="position:absolute;left:-30px;top:0px;">
+      <div class="hs-btn hs-white" id="hs-11" onclick="event.stopPropagation();toggleAnnoBubble('ab-11')"></div>
+      <div class="anno-bubble" id="ab-11"><button class="ab-close" onclick="event.stopPropagation();closeAllBubbles()">✕</button><p>Explicitly labeled "only you see this" to reduce anxiety before debate. Users can think freely without worrying their prep is visible — psychological safety is a prerequisite for good arguments.</p></div>
+    </div>
   <div class="notepad-wrap">
     <div class="notepad-lbl">Private Notes — Only You See This</div>
     <textarea id="prep-notes" rows="4" placeholder="Jot your initial thoughts, angles, or counter-arguments here…&#10;&#10;This space is entirely private. Think freely."></textarea>
@@ -727,6 +760,7 @@ if(window.self !== window.top){
       <div class="src-chip">📄 BBC Science</div>
       <div class="src-chip src-add">+ Add Source</div>
     </div>
+  </div>
   </div>
   <div class="prep-cta">
     <button class="btn btn-primary" onclick="enterChamber()">✦ Enter the Chamber</button>
@@ -737,18 +771,42 @@ if(window.self !== window.top){
 <!-- ══ SCREEN 4: DISCUSSION ══ -->
 <div id="s-disc" class="screen">
   <div class="disc-top">
-    <div class="disc-claim-banner">
-      <div class="disc-claim-eyebrow">Tonight's Claim</div>
-      <div class="disc-claim-text" id="disc-claim-mini">The benefits of space exploration outweigh its cost.</div>
+    <div style="position:relative;">
+      <div class="hs-wrap" style="position:absolute;left:-30px;top:50%;transform:translateY(-50%);">
+        <div class="hs-btn hs-white" id="hs-12" onclick="event.stopPropagation();toggleAnnoBubble('ab-12')"></div>
+        <div class="anno-bubble" id="ab-12"><button class="ab-close" onclick="event.stopPropagation();closeAllBubbles()">✕</button><p>The claim stays pinned at the top so users never lose the thread. In a long debate it's easy to forget the original statement — this keeps everyone anchored to what's actually being argued.</p></div>
+      </div>
+      <div class="disc-claim-banner">
+        <div class="disc-claim-eyebrow">Tonight's Claim</div>
+        <div class="disc-claim-text" id="disc-claim-mini">The benefits of space exploration outweigh its cost.</div>
+      </div>
     </div>
     <div class="disc-bottom-row">
+      <div style="position:relative;">
+        <div class="hs-wrap" style="position:absolute;left:-30px;top:50%;transform:translateY(-50%);">
+          <div class="hs-btn hs-white" id="hs-13" onclick="event.stopPropagation();toggleAnnoBubble('ab-13')"></div>
+          <div class="anno-bubble" id="ab-13"><button class="ab-close" onclick="event.stopPropagation();closeAllBubbles()">✕</button><p>The bar gives a spatial read of time remaining while the number gives precision — serving two mental models simultaneously.</p></div>
+        </div>
       <div class="disc-timer-row">
         <div class="disc-prog"><div class="disc-prog-fill" id="disc-prog-fill" style="width:100%"></div></div>
         <span class="disc-time" id="disc-timer">12:00</span>
       </div>
-      <div class="disc-timer-bottom">
-        <div class="disc-anon">🎭 All Anonymous</div>
-        <button class="disc-skip" onclick="goToVoting()">Skip to Voting →</button>
+      </div>
+      <div class="disc-timer-bottom" style="position:relative;">
+        <div style="position:relative;display:flex;align-items:center;gap:8px;">
+          <div class="disc-anon">🎭 All Anonymous</div>
+          <div class="hs-wrap" style="position:relative;top:auto;left:auto;">
+            <div class="hs-btn hs-white" id="hs-14" onclick="event.stopPropagation();toggleAnnoBubble('ab-14')"></div>
+            <div class="anno-bubble" id="ab-14" style="top:28px;left:0;"><button class="ab-close" onclick="event.stopPropagation();closeAllBubbles()">✕</button><p>Persistent reminder that all posts are anonymous — reinforces psychological safety on the most vulnerable screen. Users are more likely to post bold, honest arguments when they know their identity is protected.</p></div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;">
+          <button class="disc-skip" onclick="goToVoting()">Skip to Voting →</button>
+          <div class="hs-wrap" style="position:relative;top:auto;left:auto;">
+            <div class="hs-btn hs-white" id="hs-15" onclick="event.stopPropagation();toggleAnnoBubble('ab-15')"></div>
+            <div class="anno-bubble" id="ab-15" style="top:28px;right:0;left:auto;"><button class="ab-close" onclick="event.stopPropagation();closeAllBubbles()">✕</button><p>Separated from the progress bar so it reads as a deliberate choice, not an accidental tap. Sits where the eye lands after reading the countdown.</p></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -774,10 +832,22 @@ if(window.self !== window.top){
     <div class="vote-title">Cast Your Superlatives</div>
     <div class="vote-sub">Recognise what moved you — not who you agree with</div>
   </div>
-  <div class="vote-skip-row">
+  <div class="vote-skip-row" style="position:relative;">
+    <div class="hs-wrap" style="position:absolute;left:-30px;top:50%;transform:translateY(-50%);">
+      <div class="hs-btn hs-white" id="hs-16" onclick="event.stopPropagation();toggleAnnoBubble('ab-16')"></div>
+      <div class="anno-bubble" id="ab-16"><button class="ab-close" onclick="event.stopPropagation();closeAllBubbles()">✕</button><p>Placed at the top so users who don't want to vote aren't forced to scroll through all options to find the exit. Respects user agency without hiding the feature.</p></div>
+    </div>
     <button class="btn-skip" onclick="finishVoting()">Skip Voting → Go to Results</button>
   </div>
-  <div class="vote-nav card">
+  <div class="vote-nav card" style="position:relative;">
+    <div class="hs-wrap" style="position:absolute;left:-30px;top:50%;transform:translateY(-50%);">
+      <div class="hs-btn hs-white" id="hs-17" onclick="event.stopPropagation();toggleAnnoBubble('ab-17')"></div>
+      <div class="anno-bubble" id="ab-17"><button class="ab-close" onclick="event.stopPropagation();closeAllBubbles()">✕</button><p>The username nav card matches the voting option column width exactly so the eye tracks vertically without jumping. Alignment creates a clear reading path from user → argument → vote.</p></div>
+    </div>
+    <div class="hs-wrap" style="position:absolute;right:-30px;top:50%;transform:translateY(-50%);">
+      <div class="hs-btn hs-white" id="hs-18" onclick="event.stopPropagation();toggleAnnoBubble('ab-18')"></div>
+      <div class="anno-bubble" id="ab-18"><button class="ab-close" onclick="event.stopPropagation();closeAllBubbles()">✕</button><p>Arrows are large with a bordered button style — voting between users is a primary action and needs to feel deliberately tappable, not decorative.</p></div>
+    </div>
     <button class="vote-nav-arr" onclick="voteNav(-1)">←</button>
     <div class="vote-nav-name" id="vote-nav-name">IronDragon_77</div>
     <button class="vote-nav-arr" onclick="voteNav(1)">→</button>
@@ -820,7 +890,11 @@ if(window.self !== window.top){
     <div class="stat-b"><div class="stat-n" id="stat-posted">1</div><div class="stat-l">You Posted</div></div>
     <div class="stat-b"><div class="stat-n">+180</div><div class="stat-l">XP Earned</div></div>
   </div>
-  <div class="badges-sec">
+  <div class="badges-sec" style="position:relative;">
+    <div class="hs-wrap" style="position:absolute;right:-30px;top:24px;">
+      <div class="hs-btn hs-white" id="hs-21" onclick="event.stopPropagation();toggleAnnoBubble('ab-21')"></div>
+      <div class="anno-bubble" id="ab-21"><button class="ab-close" onclick="event.stopPropagation();closeAllBubbles()">✕</button><p>Staggered animation on badge reveal reinforces the sense of earned progress without feeling gamified or pressuring. Badges are private — no leaderboard, no comparison.</p></div>
+    </div>
     <div class="badges-lbl">Badges Earned This Round</div>
     <div class="badge-list">
       <div class="badge-item bi-jade" style="animation-delay:0s"><div class="bdg-icon">🔍</div><div class="bdg-info"><div class="bdg-name">Source Seeker</div><div class="bdg-desc">Cited credible sources in your argument</div></div><div class="bdg-new">New</div></div>
@@ -829,11 +903,19 @@ if(window.self !== window.top){
     </div>
   </div>
   <div class="rule" style="margin-bottom:20px"><div class="rule-line"></div><div class="rule-mark">· · ·</div><div class="rule-line"></div></div>
-  <div class="refl-prompt">
+  <div class="refl-prompt" style="position:relative;">
+    <div class="hs-wrap" style="position:absolute;left:-30px;top:24px;">
+      <div class="hs-btn hs-white" id="hs-20" onclick="event.stopPropagation();toggleAnnoBubble('ab-20')"></div>
+      <div class="anno-bubble" id="ab-20"><button class="ab-close" onclick="event.stopPropagation();closeAllBubbles()">✕</button><p>No submission button, no visibility to others. The placeholder copy signals explicitly that this space is private — reducing pressure and encouraging honest reflection.</p></div>
+    </div>
     <div class="refl-q">Did anything you read or wrote change your perspective on this claim?</div>
     <textarea rows="3" placeholder="This is just for you. No one else will read this…"></textarea>
   </div>
-  <div class="refl-cta">
+  <div class="refl-cta" style="position:relative;">
+    <div class="hs-wrap" style="position:absolute;left:-30px;top:50%;transform:translateY(-50%);">
+      <div class="hs-btn hs-white" id="hs-19" onclick="event.stopPropagation();toggleAnnoBubble('ab-19')"></div>
+      <div class="anno-bubble" id="ab-19"><button class="ab-close" onclick="event.stopPropagation();closeAllBubbles()">✕</button><p>"New Claim" and "Return to Tome" sit side by side at equal weight — no default is assumed. Both paths are valid and the layout treats them that way.</p></div>
+    </div>
     <button class="btn btn-primary" onclick="spinAgain()" style="flex:1;min-width:140px;">🎲 New Claim</button>
     <button class="btn btn-primary" onclick="go('s-home')" style="flex:1;min-width:140px;background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.2);color:var(--cream);">Return to Tome</button>
   </div>
@@ -846,7 +928,11 @@ if(window.self !== window.top){
     <span class="modal-glyph">🔭</span>
     <div class="modal-title">Enter the Void</div>
     <div class="modal-sub">A place to think freely. No ego, no leaderboard.</div>
-    <div class="modal-tabs">
+    <div class="modal-tabs" style="position:relative;">
+      <div class="hs-wrap" style="position:absolute;left:-30px;top:50%;transform:translateY(-50%);">
+        <div class="hs-btn hs-white" id="hs-5" onclick="event.stopPropagation();toggleAnnoBubble('ab-5')"></div>
+        <div class="anno-bubble" id="ab-5"><button class="ab-close" onclick="event.stopPropagation();closeAllBubbles()">✕</button><p>Fast Track is the default tab — a prototype-specific decision to reduce onboarding friction. The order mirrors expected user intent: most visitors want to explore first, log in second, sign up last.</p></div>
+      </div>
       <button class="m-tab act" onclick="switchTab('skip')">Fast Track</button>
       <button class="m-tab" onclick="switchTab('login')">Log In</button>
       <button class="m-tab" onclick="switchTab('signup')">Sign Up</button>
@@ -1316,7 +1402,7 @@ resize();
 drawStars();
 
 // ── ANNOTATION SYSTEM ──
-const allAnnoIds = ['hs-1','hs-2','hs-3','hs-4'];
+const allAnnoIds = ['hs-1','hs-2','hs-3','hs-4','hs-5','hs-6','hs-7','hs-8','hs-9','hs-10','hs-11','hs-12','hs-13','hs-14','hs-15','hs-16','hs-17','hs-18','hs-19','hs-20','hs-21'];
 let annoEnabled = false;
 
 if(window.self !== window.top){
