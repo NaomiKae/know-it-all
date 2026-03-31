@@ -776,7 +776,7 @@ if(window.self !== window.top){
 <div class="vote-skip-row" style="position:relative;"><div class="hs-wrap" style="position:absolute;"><div class="hs-btn hs-white" id="hs-16" onclick="event.stopPropagation();toggleAnnoBubble('ab-16')"></div><div class="anno-bubble" id="ab-16"><button class="ab-close" onclick="event.stopPropagation();closeAllBubbles()">&#x2715;</button><p>Placed at the top so users who don't want to vote aren't forced to scroll. Respects user agency without hiding the feature.</p></div></div>
     <button class="btn-skip" onclick="finishVoting()">Skip Voting → Go to Results</button>
   </div>
-</div><div class="vote-nav card" style="position:relative;"><div class="hs-wrap" style="position:absolute;"><div class="hs-btn hs-white" id="hs-17" onclick="event.stopPropagation();toggleAnnoBubble('ab-17')"></div><div class="anno-bubble" id="ab-17"><button class="ab-close" onclick="event.stopPropagation();closeAllBubbles()">&#x2715;</button><p>The username nav card matches the voting option column width exactly so the eye tracks vertically without jumping.</p></div></div><div class="hs-wrap" style="position:absolute;"><div class="hs-btn hs-white" id="hs-18" onclick="event.stopPropagation();toggleAnnoBubble('ab-18')"></div><div class="anno-bubble" id="ab-18"><button class="ab-close" onclick="event.stopPropagation();closeAllBubbles()">&#x2715;</button><p>Arrows are large with a bordered button style — voting between users is a primary action and needs to feel deliberately tappable, not decorative.</p></div></div>
+  <div class="vote-nav card" style="position:relative;"><div class="hs-wrap" style="position:absolute;"><div class="hs-btn hs-white" id="hs-17" onclick="event.stopPropagation();toggleAnnoBubble('ab-17')"></div><div class="anno-bubble" id="ab-17"><button class="ab-close" onclick="event.stopPropagation();closeAllBubbles()">&#x2715;</button><p>The username nav card matches the voting option column width exactly so the eye tracks vertically without jumping.</p></div></div><div class="hs-wrap" style="position:absolute;"><div class="hs-btn hs-white" id="hs-18" onclick="event.stopPropagation();toggleAnnoBubble('ab-18')"></div><div class="anno-bubble" id="ab-18"><button class="ab-close" onclick="event.stopPropagation();closeAllBubbles()">&#x2715;</button><p>Arrows are large with a bordered button style — voting between users is a primary action and needs to feel deliberately tappable, not decorative.</p></div></div>
     <button class="vote-nav-arr" onclick="voteNav(-1)">←</button>
     <div class="vote-nav-name" id="vote-nav-name">IronDragon_77</div>
     <button class="vote-nav-arr" onclick="voteNav(1)">→</button>
@@ -836,8 +836,6 @@ if(window.self !== window.top){
     <button class="btn btn-primary" onclick="spinAgain()" style="flex:1;min-width:140px;">🎲 New Claim</button>
     <button class="btn btn-primary" onclick="go('s-home')" style="flex:1;min-width:140px;background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.2);color:var(--cream);">Return to Tome</button>
   </div>
-</div>
-
 <!-- ══ AUTH MODAL ══ -->
 <div id="auth-modal" class="modal-backdrop" style="display:none" onclick="handleBackdropClick(event)">
   <div class="modal">
